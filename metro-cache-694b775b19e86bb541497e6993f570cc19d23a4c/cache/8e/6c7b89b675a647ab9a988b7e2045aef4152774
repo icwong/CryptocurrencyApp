@@ -1,0 +1,39 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  function mark(data, type, transformMethod) {
+    return {
+      data: transformMethod ? data[transformMethod]() : data,
+      __serializedType__: type
+    };
+  }
+
+  function extract(data, type) {
+    return {
+      data: _extends({}, data),
+      __serializedType__: type
+    };
+  }
+
+  function refer(data, type, isArray, refs) {
+    var r = mark(data, type, isArray);
+    if (!refs) return r;
+
+    for (var i = 0; i < refs.length; i++) {
+      var ref = refs[i];
+
+      if (typeof ref === 'function' && data instanceof ref) {
+        r.__serializedRef__ = i;
+        return r;
+      }
+    }
+
+    return r;
+  }
+
+  module.exports = {
+    mark: mark,
+    extract: extract,
+    refer: refer
+  };
+});

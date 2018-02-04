@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var baseFlatten = require(_dependencyMap[0], './_baseFlatten'),
+      baseRest = require(_dependencyMap[1], './_baseRest'),
+      baseUniq = require(_dependencyMap[2], './_baseUniq'),
+      isArrayLikeObject = require(_dependencyMap[3], './isArrayLikeObject');
+
+  var union = baseRest(function (arrays) {
+    return baseUniq(baseFlatten(arrays, 1, isArrayLikeObject, true));
+  });
+  module.exports = union;
+});

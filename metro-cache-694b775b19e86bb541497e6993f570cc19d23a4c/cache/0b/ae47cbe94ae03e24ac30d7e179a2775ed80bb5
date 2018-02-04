@@ -1,0 +1,8 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  var FETCHING_COIN_DATA = exports.FETCHING_COIN_DATA = "FETCHING_COIN_DATA";
+  var FETCHING_COIN_DATA_SUCCESS = exports.FETCHING_COIN_DATA_SUCCESS = "FETCHING_COIN_DATA_SUCCESS";
+  var FETCHING_COIN_DATA_FAIL = exports.FETCHING_COIN_DATA_FAIL = "FETCHING_COIN_DATA_FAIL";
+});

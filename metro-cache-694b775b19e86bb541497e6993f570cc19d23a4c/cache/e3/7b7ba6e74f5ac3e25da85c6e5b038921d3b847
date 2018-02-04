@@ -1,0 +1,17 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _redux = require(_dependencyMap[0], "redux");
+
+    var _CryptoReducer = require(_dependencyMap[1], "./CryptoReducer");
+
+    var _CryptoReducer2 = _interopRequireDefault(_CryptoReducer);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    exports.default = (0, _redux.combineReducers)({
+        crypto: _CryptoReducer2.default
+    });
+});

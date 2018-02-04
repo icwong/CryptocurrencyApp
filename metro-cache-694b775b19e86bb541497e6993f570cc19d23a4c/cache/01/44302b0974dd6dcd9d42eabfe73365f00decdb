@@ -1,0 +1,45 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  'use strict';
+
+  var alphabet = require(_dependencyMap[0], './alphabet');
+
+  var encode = require(_dependencyMap[1], './encode');
+
+  var decode = require(_dependencyMap[2], './decode');
+
+  var build = require(_dependencyMap[3], './build');
+
+  var isValid = require(_dependencyMap[4], './is-valid');
+
+  var clusterWorkerId = require(_dependencyMap[5], './util/cluster-worker-id') || 0;
+
+  function seed(seedValue) {
+    alphabet.seed(seedValue);
+    return module.exports;
+  }
+
+  function worker(workerId) {
+    clusterWorkerId = workerId;
+    return module.exports;
+  }
+
+  function characters(newCharacters) {
+    if (newCharacters !== undefined) {
+      alphabet.characters(newCharacters);
+    }
+
+    return alphabet.shuffled();
+  }
+
+  function generate() {
+    return build(clusterWorkerId);
+  }
+
+  module.exports = generate;
+  module.exports.generate = generate;
+  module.exports.seed = seed;
+  module.exports.worker = worker;
+  module.exports.characters = characters;
+  module.exports.decode = decode;
+  module.exports.isValid = isValid;
+});

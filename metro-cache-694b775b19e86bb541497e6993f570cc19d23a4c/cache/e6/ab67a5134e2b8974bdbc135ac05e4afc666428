@@ -1,0 +1,239 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    var _jsxFileName = "/Users/ivanwong/Google Drive/School/2018 SPRING/CMPT 470/Project/react-native-redux-crypto-tracker/src/components/CoinCard.js";
+
+    var _react = require(_dependencyMap[0], "react");
+
+    var _react2 = _interopRequireDefault(_react);
+
+    var _reactNative = require(_dependencyMap[1], "react-native");
+
+    var _CoinIcons = require(_dependencyMap[2], "../Utils/CoinIcons");
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    var styles = _reactNative.StyleSheet.create({
+        container: {
+            display: "flex",
+            marginBottom: 20,
+            borderBottomColor: "#e5e5e5",
+            borderBottomWidth: 3,
+            padding: 20
+        },
+        upperRow: {
+            display: "flex",
+            flexDirection: "row",
+            marginBottom: 15
+        },
+        coinSymbol: {
+            marginTop: 10,
+            marginLeft: 20,
+            marginRight: 5,
+            fontWeight: "bold"
+        },
+        coinName: {
+            marginTop: 10,
+            marginLeft: 5,
+            marginRight: 20
+        },
+        seperator: {
+            marginTop: 10
+        },
+        coinPrice: {
+            marginTop: 10,
+            marginLeft: "auto",
+            marginRight: 10,
+            fontWeight: "bold"
+        },
+        image: {
+            width: 35,
+            height: 35
+        },
+        moneySymbol: {
+            fontWeight: "bold"
+        },
+        statisticsContainer: {
+            display: "flex",
+            borderTopColor: "#FAFAFA",
+            borderTopWidth: 2,
+            padding: 10,
+            flexDirection: "row",
+            justifyContent: "space-around"
+        },
+        percentChangePlus: {
+            color: "#00BFA5",
+            fontWeight: "bold",
+            marginLeft: 5
+        },
+        percentChangeMinus: {
+            color: "#DD2C00",
+            fontWeight: "bold",
+            marginLeft: 5
+        }
+    });
+
+    var container = styles.container,
+        image = styles.image,
+        moneySymbol = styles.moneySymbol,
+        upperRow = styles.upperRow,
+        coinSymbol = styles.coinSymbol,
+        coinName = styles.coinName,
+        coinPrice = styles.coinPrice,
+        statisticsContainer = styles.statisticsContainer,
+        seperator = styles.seperator,
+        percentChangePlus = styles.percentChangePlus,
+        percentChangeMinus = styles.percentChangeMinus;
+
+    var CoinCard = function CoinCard(_ref) {
+        var symbol = _ref.symbol,
+            coin_name = _ref.coin_name,
+            price_usd = _ref.price_usd,
+            percent_change_24h = _ref.percent_change_24h,
+            percent_change_7d = _ref.percent_change_7d;
+        return _react2.default.createElement(
+            _reactNative.View,
+            {
+                style: container,
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 88
+                }
+            },
+            _react2.default.createElement(
+                _reactNative.View,
+                {
+                    style: upperRow,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 90
+                    }
+                },
+                _react2.default.createElement(_reactNative.Image, {
+                    style: styles.image,
+                    source: {
+                        uri: _CoinIcons.images[symbol]
+                    },
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 91
+                    }
+                }),
+                _react2.default.createElement(
+                    _reactNative.Text,
+                    {
+                        style: coinSymbol,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 95
+                        }
+                    },
+                    symbol
+                ),
+                _react2.default.createElement(
+                    _reactNative.Text,
+                    {
+                        style: seperator,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 96
+                        }
+                    },
+                    "|"
+                ),
+                _react2.default.createElement(
+                    _reactNative.Text,
+                    {
+                        style: coinName,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 97
+                        }
+                    },
+                    coin_name
+                ),
+                _react2.default.createElement(
+                    _reactNative.Text,
+                    {
+                        style: coinPrice,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 98
+                        }
+                    },
+                    price_usd,
+                    _react2.default.createElement(
+                        _reactNative.Text,
+                        {
+                            style: moneySymbol,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 99
+                            }
+                        },
+                        " $ "
+                    )
+                )
+            ),
+            _react2.default.createElement(
+                _reactNative.View,
+                {
+                    style: statisticsContainer,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 103
+                    }
+                },
+                _react2.default.createElement(
+                    _reactNative.Text,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 105
+                        }
+                    },
+                    "24h:",
+                    _react2.default.createElement(
+                        _reactNative.Text,
+                        {
+                            style: percent_change_24h < 0 ? percentChangeMinus : percentChangePlus,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 106
+                            }
+                        },
+                        " ",
+                        percent_change_24h,
+                        " % "
+                    )
+                ),
+                _react2.default.createElement(
+                    _reactNative.Text,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 108
+                        }
+                    },
+                    "7d:",
+                    _react2.default.createElement(
+                        _reactNative.Text,
+                        {
+                            style: percent_change_7d < 0 ? percentChangeMinus : percentChangePlus,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 109
+                            }
+                        },
+                        " ",
+                        percent_change_7d,
+                        " % "
+                    )
+                )
+            )
+        );
+    };
+
+    exports.default = CoinCard;
+});

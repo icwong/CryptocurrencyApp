@@ -1,0 +1,20 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var SCSocket = require(_dependencyMap[0], './lib/scsocket');
+
+  var SCSocketCreator = require(_dependencyMap[1], './lib/scsocketcreator');
+
+  module.exports.SCSocketCreator = SCSocketCreator;
+  module.exports.SCSocket = SCSocket;
+  module.exports.SCEmitter = require(_dependencyMap[2], "sc-emitter").SCEmitter;
+
+  module.exports.connect = function (options) {
+    return SCSocketCreator.connect(options);
+  };
+
+  module.exports.destroy = function (options) {
+    return SCSocketCreator.destroy(options);
+  };
+
+  module.exports.connections = SCSocketCreator.connections;
+  module.exports.version = '5.5.2';
+});

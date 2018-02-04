@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var Set = require(_dependencyMap[0], './_Set'),
+      noop = require(_dependencyMap[1], './noop'),
+      setToArray = require(_dependencyMap[2], './_setToArray');
+
+  var INFINITY = 1 / 0;
+  var createSet = !(Set && 1 / setToArray(new Set([, -0]))[1] == INFINITY) ? noop : function (values) {
+    return new Set(values);
+  };
+  module.exports = createSet;
+});

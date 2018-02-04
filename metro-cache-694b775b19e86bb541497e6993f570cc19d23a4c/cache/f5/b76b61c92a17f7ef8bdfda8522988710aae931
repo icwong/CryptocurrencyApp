@@ -1,0 +1,39 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _reactNative = require(_dependencyMap[0], "react-native");
+
+  var _redux = require(_dependencyMap[1], "redux");
+
+  var _remoteReduxDevtools = require(_dependencyMap[2], "remote-redux-devtools");
+
+  var _remoteReduxDevtools2 = _interopRequireDefault(_remoteReduxDevtools);
+
+  var _reduxPromise = require(_dependencyMap[3], "redux-promise");
+
+  var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
+
+  var _reduxThunk = require(_dependencyMap[4], "redux-thunk");
+
+  var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+  var _reduxLogger = require(_dependencyMap[5], "redux-logger");
+
+  var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+
+  var _Reducers = require(_dependencyMap[6], "./Reducers");
+
+  var _Reducers2 = _interopRequireDefault(_Reducers);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var middleware = (0, _redux.applyMiddleware)(_reduxThunk2.default, _reduxPromise2.default, _reduxLogger2.default);
+  var Store = (0, _redux.createStore)(_Reducers2.default, (0, _redux.compose)(middleware, (0, _remoteReduxDevtools2.default)({
+    name: _reactNative.Platform.OS,
+    hostname: 'localhost',
+    port: 5678
+  })));
+  exports.default = Store;
+});
